@@ -178,11 +178,11 @@ def generate_short_description(brand, tyre_size, pattern, load, year, country, c
                 f"load index {load}. Available at AED {price} (fully fitted price) "
                 f"with {warranty} at TyresCart.ae.")
 
-print(f"📂 Reading {INPUT_CSV}...")
+print(f"Reading {INPUT_CSV}...")
 df = pd.read_csv(INPUT_CSV, low_memory=False)
 print(f"   → {len(df)} rows loaded\n")
 
-print("🚀 Generating descriptions and FAQs...")
+print("Generating descriptions and FAQs...")
 for i in tqdm(range(len(df))):
     product = df.iloc[i].to_dict()
     brand, tyre_size, pattern, load, year, country, rim, tyre_type, category, warranty, price = extract_fields(product)
@@ -201,8 +201,8 @@ for i in tqdm(range(len(df))):
     df.at[i, 'short_description'] = generate_short_description(brand, tyre_size, pattern, load, year, country, category, warranty, price, short_variant)
 
 df.to_csv(OUTPUT_CSV, index=False)
-print(f"\n✅ Done! {len(df)} products processed.")
-print(f"📤 Output saved as: {OUTPUT_CSV}")
-print(f"\n📥 Magento Import:")
+print(f"\n Done! {len(df)} products processed.")
+print(f" Output saved as: {OUTPUT_CSV}")
+print(f"\n Magento Import:")
 print(f"   Admin → System → Data Transfer → Import")
 print(f"   Entity Type: Products → Choose File → {OUTPUT_CSV} → Check Data → Import")
