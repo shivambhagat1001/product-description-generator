@@ -52,7 +52,7 @@ python script.py
 ```
 ---
 
-## 📂 How to Run
+## 📂 Sample Files
 
 Note: The sample CSV files are for demonstration purposes only and may differ from actual production data.
 
